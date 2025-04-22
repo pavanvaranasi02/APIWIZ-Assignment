@@ -1,9 +1,9 @@
-import React from 'react';
-import { Box } from '@mui/material';
-import JournalEntryCard from '../molecules/JournalEntryCard';
-import Typography from '../atoms/Typography';
-import FilterChips from '../molecules/FilterChips';
-import { JournalEntry } from '../../types';
+import React from "react";
+import { Box } from "@mui/material";
+import JournalEntryCard from "../molecules/JournalEntryCard";
+import Typography from "../atoms/Typography";
+import FilterChips from "../molecules/FilterChips";
+import { JournalEntry } from "../../types";
 
 interface JournalListProps {
   entries: JournalEntry[];
@@ -14,7 +14,7 @@ interface JournalListProps {
 const JournalList: React.FC<JournalListProps> = ({
   entries,
   onFilterChange,
-  selectedFilter
+  selectedFilter,
 }) => {
   return (
     <Box sx={{ padding: 3 }}>
@@ -28,11 +28,18 @@ const JournalList: React.FC<JournalListProps> = ({
         sx={{ mb: 3 }}
       />
 
-      <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+      <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
         {entries.map((entry) => (
           <JournalEntryCard
             key={entry.id}
-            {...entry}
+            id={entry.id}
+            date={entry.date}
+            mood={entry.mood}
+            note={entry.note}
+            weather={{
+              temperature: entry.weather.main.temp,
+              icon: entry.weather.weather[0].icon,
+            }}
           />
         ))}
       </Box>

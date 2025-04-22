@@ -109,19 +109,19 @@ const JournalEntries: React.FC<JournalEntriesProps> = ({
   return (
     <Box sx={{ mt: 4 }}>
       <Grid container spacing={3}>
-        <Grid item xs={12} md={4}>
+        <Grid>
           <Card sx={{ p: 2 }}>
             <JournalCalendar
               entries={entries}
               onDateSelect={(date) => {
                 setSelectedDate(date);
-                setCurrentPage(1); 
+                setCurrentPage(1);
               }}
             />
           </Card>
         </Grid>
 
-        <Grid item xs={12} md={8}>
+        <Grid>
           <Box
             sx={{
               display: "flex",
@@ -177,7 +177,7 @@ const JournalEntries: React.FC<JournalEntriesProps> = ({
 
           <Grid container spacing={2}>
             {paginatedEntries.map((entry) => (
-              <Grid item xs={12} md={6} key={entry.id}>
+              <Grid key={entry.id}>
                 <Card
                   sx={{
                     height: "100%",

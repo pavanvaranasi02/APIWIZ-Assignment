@@ -5,7 +5,7 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { Box } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { JournalEntry } from "../../types";
-import dayjs, { Dayjs } from "dayjs";
+import dayjs from "dayjs";
 import { PickersDay, PickersDayProps } from "@mui/x-date-pickers/PickersDay";
 
 interface JournalCalendarProps {
@@ -34,7 +34,7 @@ const JournalCalendar: React.FC<JournalCalendarProps> = ({
     return acc;
   }, {} as Record<string, string>);
 
-  const ServerDay = (props: PickersDayProps<Dayjs>) => {
+  const ServerDay = (props: PickersDayProps) => {
     const { day, outsideCurrentMonth, ...other } = props;
     const dateStr = day.format("YYYY-MM-DD");
     const hasEntry = dateStr in entryDates;

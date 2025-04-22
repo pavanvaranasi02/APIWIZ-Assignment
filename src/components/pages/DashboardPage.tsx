@@ -5,7 +5,7 @@ import JournalEntries from "../organisms/JournalEntries";
 import { weatherService } from "../../services/api";
 import LoadingSpinner from "../atoms/LoadingSpinner";
 import Typography from "../atoms/Typography";
-import { JournalEntry, SortConfig, FilterConfig, Weather } from "../../types";
+import { JournalEntry, SortConfig, Weather } from "../../types";
 
 interface LocationState {
   latitude: number;
@@ -23,7 +23,7 @@ const DashboardPage: React.FC = () => {
     loading: true,
     error: null,
   });
-  const [currentPage, setCurrentPage] = useState(1);
+  // const [currentPage, setCurrentPage] = useState(1);
   const [sortConfig, setSortConfig] = useState<SortConfig>({
     field: "date",
     order: "desc",
